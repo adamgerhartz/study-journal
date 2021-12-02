@@ -5,6 +5,7 @@ const schema = mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
   context: { type: String, required: true },
+  tags: [{ type: String }],
   lastUpdated: { type: Date, required: true },
   created: { type: Date, required: true }
 });

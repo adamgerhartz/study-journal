@@ -33,6 +33,7 @@ router.post("/", (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
     context: req.body.context,
+    tags: req.body.tags,
     lastUpdated: now,
     created: now
   });
@@ -64,6 +65,7 @@ router.put("/:id", (req, res, next) => {
       note.title = req.body.title;
       note.content = req.body.content;
       note.context = req.body.context;
+      note.tags = req.body.tags;
       note.lastUpdated = now;
       note.created = req.body.created;
 
