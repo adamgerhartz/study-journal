@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
+import { NoteGridComponent } from './notes/note-grid/note-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotesComponent
+    NotesComponent,
+    NoteGridComponent
   ],
   imports: [
     BrowserModule
