@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoteGridComponent } from './notes/note-grid/note-grid.component';
 import { NoteDetailComponent } from './notes/note-detail/note-detail.component';
 import { NoteEditComponent } from './notes/note-edit/note-edit.component';
+import { NoteStartComponent } from './notes/note-start/note-start.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { NoteEditComponent } from './notes/note-edit/note-edit.component';
     NotesComponent,
     NoteGridComponent,
     NoteDetailComponent,
-    NoteEditComponent
+    NoteEditComponent,
+    NoteStartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
