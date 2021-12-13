@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './routing/app-routing.module';
+import { RoutingModule } from './routing/routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoteGridComponent } from './notes/note-grid/note-grid.component';
@@ -20,7 +20,7 @@ import { NoteStartComponent } from './notes/note-start/note-start.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
