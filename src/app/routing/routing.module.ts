@@ -11,7 +11,6 @@ import { NoteResolverService } from '../notes/note-resolver.service';
 const routes: Routes = [
   { path: '', redirectTo: '/notes', pathMatch: 'full' },
   { path: 'notes', component: NotesComponent, children: [
-    { path: '', component: NoteStartComponent },
     { path: 'new', component: NoteEditComponent },
     { path: ':id', component: NoteDetailComponent, resolve: [NoteResolverService] },
     { path: ':id/edit', component: NoteEditComponent, resolve: [NoteResolverService] }
