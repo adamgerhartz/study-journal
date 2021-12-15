@@ -29,8 +29,8 @@ export class DataStorageService {
               content: note.content,
               context: note.context,
               tags: note.tags ? note.tags : [],
-              lastUpdated: note.lastUpdated,
-              created: note.created
+              lastUpdated: Date.parse(note.lastUpdated),
+              created: Date.parse(note.created)
             };
           });
         }),
