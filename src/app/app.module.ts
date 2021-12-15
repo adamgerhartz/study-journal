@@ -9,7 +9,7 @@ import { NotesComponent } from './notes/notes.component';
 import { NoteGridComponent } from './notes/note-grid/note-grid.component';
 import { NoteDetailComponent } from './notes/note-detail/note-detail.component';
 import { NoteEditComponent } from './notes/note-edit/note-edit.component';
-import { NoteStartComponent } from './notes/note-start/note-start.component';
+import { NoteItemComponent } from './notes/note-grid/note-item/note-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { NoteStartComponent } from './notes/note-start/note-start.component';
     NoteGridComponent,
     NoteDetailComponent,
     NoteEditComponent,
-    NoteStartComponent
+    NoteItemComponent
   ],
   imports: [
     BrowserModule,

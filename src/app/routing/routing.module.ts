@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NotesComponent } from '../notes/notes.component';
-import { NoteStartComponent } from '../notes/note-start/note-start.component';
 import { NoteEditComponent } from '../notes/note-edit/note-edit.component';
 import { NoteDetailComponent } from '../notes/note-detail/note-detail.component';
 import { NoteResolverService } from '../notes/note-resolver.service';
