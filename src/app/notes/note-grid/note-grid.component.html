@@ -3,6 +3,7 @@
     <button
       *ngIf="!buttonPressed && isGrid; else newNote"
       type="button"
+      class="btn btn-primary"
       (click)="onCreateNote()">Create New Note</button>
   </div>
 </div>
