@@ -1,1 +1,204 @@
-<p>note-detail works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div
+        *ngIf="!isTitle; else titleEdit">
+        <h1>Note Title</h1>
+        <span
+          (click)="onEdit('title')"
+          class="btn btn-primary">Edit</span>
+        <hr>
+        <h5>{{ note.title }}</h5>
+      </div>
+      <ng-template #titleEdit>
+        <form [formGroup]="noteTitleForm" (ngSubmit)="onSubmit('title')">
+          <h1>Note Title</h1>
+          <button
+            type="submit"
+            class="btn btn-success">Save</button>
+          <span
+            (click)="onCancel('title')"
+            class="btn btn-danger">Cancel</span>
+          <hr>
+          <div class="formGroup">
+            <input
+              type="text"
+              formControlName="title"
+              id="title"
+              class="form-control form-control-lg"
+              placeholder="{{note.title}}">
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div
+        *ngIf="!isReference; else referenceEdit">
+        <h1>Note Reference</h1>
+        <span
+          (click)="onEdit('reference')"
+          class="btn btn-primary">Edit</span>
+        <hr>
+        <h5>
+          <a
+            [href]="'https://churchofjesuschrist.org'  + note.uri"
+            target="_blank">{{ note.reference }}</a>
+        </h5>
+      </div>
+      <ng-template #referenceEdit>
+        <form [formGroup]="noteReferenceForm" (ngSubmit)="onSubmit('reference')">
+          <h1>Note Reference</h1>
+          <button
+            type="submit"
+            class="btn btn-success">Save</button>
+          <span
+            (click)="onCancel('reference')"
+            class="btn btn-danger">Cancel</span>
+          <hr>
+          <div class="formGroup">
+            <input
+              type="text"
+              formControlName="reference"
+              id="reference"
+              class="form-control form-control-lg"
+              placeholder="{{note.reference}}">
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div
+        *ngIf="!isContent; else contentEdit">
+        <h1>Note Content</h1>
+        <span
+          (click)="onEdit('content')"
+          class="btn btn-primary">Edit</span>
+        <hr>
+        <h5>{{ note.content }}</h5>
+      </div>
+      <ng-template #contentEdit>
+        <form [formGroup]="noteContentForm" (ngSubmit)="onSubmit('content')">
+          <h1>Note Content</h1>
+          <button
+            type="submit"
+            class="btn btn-success">Save</button>
+          <span
+            (click)="onCancel('content')"
+            class="btn btn-danger">Cancel</span>
+          <hr>
+          <div class="formGroup">
+            <textarea
+              type="text"
+              formControlName="content"
+              id="content"
+              rows="6"
+              class="form-control form-control-lg"
+              placeholder="{{note.content}}"></textarea>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div
+        *ngIf="!isContext; else contextEdit">
+        <h1>Highlighted Portion</h1>
+        <span
+          (click)="onEdit('context')"
+          class="btn btn-primary">Edit</span>
+        <hr>
+        <h5>{{ note.context }}</h5>
+      </div>
+      <ng-template #contextEdit>
+        <form [formGroup]="noteContextForm" (ngSubmit)="onSubmit('context')">
+          <h1>Highlighted Portion</h1>
+          <button
+            type="submit"
+            class="btn btn-success">Save</button>
+          <span
+            (click)="onCancel('context')"
+            class="btn btn-danger">Cancel</span>
+          <hr>
+          <div class="formGroup">
+            <textarea
+              type="text"
+              formControlName="context"
+              id="context"
+              rows="3"
+              class="form-control form-control-lg"
+              placeholder="{{note.context}}"></textarea>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div
+        *ngIf="!isTags; else tagsEdit">
+        <h1>Note Tags</h1>
+        <span
+          (click)="onEdit('tags')"
+          class="btn btn-primary">Edit</span>
+        <hr>
+        <h5
+          *ngFor="let tag of note.tags">{{ tag }}</h5>
+      </div>
+      <ng-template #tagsEdit>
+        <form [formGroup]="noteTagsForm" (ngSubmit)="onSubmit('tags')">
+          <h1>Note Tags</h1>
+          <button
+            type="submit"
+            class="btn btn-success">Save</button>
+          <span
+            (click)="onCancel('tags')"
+            class="btn btn-danger">Cancel</span>
+          <hr>
+          <div class="formGroup">
+            <textarea
+              type="text"
+              formControlName="tags"
+              id="tags"
+              rows="2"
+              class="form-control form-control-lg"
+              placeholder="{{note.tags}}"></textarea>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Note Created</h1>
+      <hr>
+      <h5>{{ note.created | date }}</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Note Last Updated</h1>
+      <hr>
+      <h5>{{ note.lastUpdated | date }}</h5>
+    </div>
+  </div>
+  <div
+    class="row">
+    <div class="col-sm-12">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="returnToNotes()">Return to Notes Page</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        *ngIf="!isNewNote"
+        (click)="deleteNote()">Delete Note</button>
+    </div>
+
+  </div>
+</div>

@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 
 import { Note } from './note.model';
-import { DataStorageService } from '../utilities/data-storage.service';
+import { DataStorageReadService } from '../utilities/data-storage-read.service';
 import { NoteService } from './note.service';
 
 @Injectable({
@@ -14,14 +14,15 @@ import { NoteService } from './note.service';
 })
 export class NoteResolverService implements Resolve<Note[]> {
 
-  constructor(private dataStorageService: DataStorageService,
+  constructor(private dataStorageReadService: DataStorageReadService,
     private noteService: NoteService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    console.log("CALLED");
     const notes = this.noteService.getNotes();
 
     if (notes.length === 0) {
-      return this.dataStorageService.fetchNotes();
+      return this.dataStorageReadService.fetchNotes();
     } else {
       return notes;
     }

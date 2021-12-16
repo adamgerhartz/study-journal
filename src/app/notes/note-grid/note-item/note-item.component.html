@@ -1,1 +1,22 @@
-<p>note-item works!</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <div
+      class="click-wrapper"
+      [routerLink]="[note.id]"
+      routerLinkActive="active"
+      (click)="onToggleGrid()">
+      <h5 class="card-title">{{ note.title | truncate:51 }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ note.created | date }}</h6>
+      <p class="card-text">{{ note.content | truncate:95 }}</p>
+      <span
+        class="badge rounded-pill bg-primary"
+        *ngFor="let tag of note.tags">{{ tag }}</span>
+      <br>
+      <hr>
+    </div>
+    <a
+      [href]="'https://churchofjesuschrist.org' + note.uri"
+      target="_blank"
+      class="card-link">{{ note.reference }}</a>
+  </div>
+</div>

@@ -26,16 +26,15 @@ router.get("/", (req, res, next) => {
  * POST
  */
 router.post("/", (req, res, next) => {
-  const now = Date.now();
-
+  console.log(req.body)
   const note = new Note({
     uri: req.body.uri,
     title: req.body.title,
     content: req.body.content,
     context: req.body.context,
     tags: req.body.tags,
-    lastUpdated: now,
-    created: now
+    lastUpdated: req.body.lastUpdated,
+    created: req.body.created
   });
 
   note.save()

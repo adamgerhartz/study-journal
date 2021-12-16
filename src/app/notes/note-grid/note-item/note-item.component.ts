@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Note } from '../../note.model';
 
 @Component({
   selector: 'app-note-item',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note-item.component.scss']
 })
 export class NoteItemComponent implements OnInit {
+  @Input() note: Note;
+  @Input() isGrid: boolean;
+  @Output() isGridChange = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  onToggleGrid(): void {
+    this.isGrid = !this.isGrid;
+    this.isGridChange.emit(this.isGrid);
   }
 
 }
