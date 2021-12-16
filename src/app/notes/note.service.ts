@@ -63,13 +63,13 @@ export class NoteService {
 
   deleteNote(noteToDelete: Note) {
     const id = noteToDelete.id;
+    this.dataStorageWriteService.deleteNote(id);
     for (let i = 0; i < this.notes.length; i++) {
       if (this.notes[i] == noteToDelete) {
         this.notes.splice(i, 1);
       }
     }
     this.notesChanged.next(this.notes.slice());
-    this.dataStorageWriteService.deleteNote(id);
   }
 
   public generateUri(reference: string) {

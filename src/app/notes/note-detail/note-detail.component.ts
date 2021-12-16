@@ -137,6 +137,8 @@ export class NoteDetailComponent implements OnInit {
   }
 
   returnToNotes() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], {relativeTo: this.route}).then(() => {
+    window.location.reload();
+  });;
   }
 }
